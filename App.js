@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import LoginView from './components/loginView'; 
+import HomeView from './components/homeView';
+import Details from './components/details';
+import { Stack, Scene, Router } from 'react-native-router-flux';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+export default function App(){
+  
+    return (
+      <Router> 
+        <Stack key="root">
+          <Scene key="login" component={LoginView} title="Logim" hideNavBar />
+          <Scene key="home" component={HomeView} title = "Home" />
+          <Scene key="details" component={Details} title="Detalles" />
+        </Stack>
+      </Router>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
